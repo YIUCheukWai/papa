@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Member Management</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h1 {
+        text-align: center;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+      }
+      table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+      }
+      button {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Restaurant Member Management</h1>
+
+      <!-- Search Bar -->
+      <div class="form-group">
+        <label for="search">Search Members:</label>
+        <input type="text" id="search" placeholder="Search by name or phone" />
+      </div>
+
+      <!-- Registration Form -->
+      <h2>Register New Member</h2>
+      <form id="member-form">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" required />
+        </div>
+        <div class="form-group">
+          <label for="balance">Initial Balance:</label>
+          <input
+            type="number"
+            id="balance"
+            placeholder="300"
+            min="0"
+            step="0.01"
+          />
+          <!-- Display default 300 -->
+        </div>
+        <button type="submit">Add Member</button>
+      </form>
+
+      <!-- Member List -->
+      <h2>Members List</h2>
+      <table id="members-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Card Balance</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Members will be listed here -->
+        </tbody>
+      </table>
+    </div>
+
+    <script src="client.js"></script>
+    <!-- Link to your JavaScript file -->
+  </body>
+</html>
