@@ -12,7 +12,7 @@ app.use(express.json()); // Middleware to parse JSON requests
 mongoose.set("debug", true);
 
 const ATLAS_URI =
-  "mongodb+srv://test:EgAu9MElaFg4WxJD@cluster28277.a2m05.mongodb.net/memberDB?retryWrites=true&w=majority&appName=Cluster28277";
+  "mongodb+srv://admin:admin@cluster28277.a2m05.mongodb.net/memberDB?retryWrites=true&w=majority&appName=Cluster28277";
 
 // Function to start the server after MongoDB connection
 const startServer = async () => {
