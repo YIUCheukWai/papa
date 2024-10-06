@@ -5,7 +5,7 @@ const membersTableBody = document
 const searchInput = document.getElementById("search");
 
 // Base URL for the API
-const BASE_API_URL = "https://54.205.117.63";
+const BASE_API_URL = "http://54.205.117.63";
 // Store all members for searching
 let allMembers = [];
 
