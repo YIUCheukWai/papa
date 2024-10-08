@@ -170,5 +170,29 @@ const deleteMember = async (memberId) => {
   }
 };
 
+// Event listener for the search input
+searchInput.addEventListener("input", () => {
+  const searchTerm = searchInput.value.toLowerCase();
+  filterMembers(searchTerm);
+});
+
+// Function to filter members based on the search term
+const filterMembers = (searchTerm) => {
+  // Clear the existing members in the table
+  membersTableBody.innerHTML = "";
+
+  // Filter members based on the search term
+  const filteredMembers = allMembers.filter(
+    (member) =>
+      member.name.toLowerCase().includes(searchTerm) ||
+      member.phone.includes(searchTerm)
+  );
+
+  // Add the filtered members to the table
+  filteredMembers.forEach((member) => {
+    addMemberToTable(member);
+  });
+};
+
 // Fetch members on page load
 window.onload = fetchMembers;
