@@ -1,13 +1,15 @@
+### Add an S3 bucket to back up your EC2 instance
+
 To add an S3 bucket to back up your EC2 instance, you can use AWS services like **Amazon S3** (for storage) and **AWS CLI** or **AWS SDKs** to automate the backup process. Here’s a step-by-step guide to back up your EC2 instance to an S3 bucket:
 
-### Step 1: Create an S3 Bucket
+#### Step 1: Create an S3 Bucket
 1. **Log in to the AWS Management Console**.
 2. Navigate to **S3** and click **Create bucket**.
 3. Enter a **bucket name** (must be globally unique) and choose the **region** where the bucket will reside.
 4. Configure bucket settings (e.g., versioning, encryption), depending on your backup needs.
 5. Leave other options as default or adjust according to your use case, then click **Create bucket**.
 
-### Step 2: Configure IAM Role for EC2 (Grant Access to S3)
+#### Step 2: Configure IAM Role for EC2 (Grant Access to S3)
 1. Go to the **IAM Console** and click **Roles**.
 2. Click **Create Role** and select **AWS Service**, then choose **EC2** as the trusted entity.
 3. Attach the **AmazonS3FullAccess** policy (or create a custom policy with more limited permissions if needed).
@@ -17,7 +19,7 @@ To add an S3 bucket to back up your EC2 instance, you can use AWS services like 
    - Select the instance you want to back up, click **Actions** > **Security** > **Modify IAM Role**.
    - Select the new role (`EC2-S3-Backup-Role`), and click **Update IAM role**.
 
-### Step 3: Install AWS CLI on Your EC2 Instance
+#### Step 3: Install AWS CLI on Your EC2 Instance
 1. Connect to your EC2 instance via SSH.
 2. Run the following command to install the AWS CLI (if it’s not already installed):
    ```bash
@@ -34,7 +36,7 @@ To add an S3 bucket to back up your EC2 instance, you can use AWS services like 
    aws --version
    ```
 
-### Step 4: Sync EC2 Files to the S3 Bucket
+#### Step 4: Sync EC2 Files to the S3 Bucket
 1. Set up the AWS CLI with the required region (if using IAM roles, you can skip configuring keys):
    ```bash
    aws configure
@@ -51,7 +53,7 @@ To add an S3 bucket to back up your EC2 instance, you can use AWS services like 
    ```
    This command will upload all files from the specified directory to the S3 bucket.
 
-### Step 5: Automate the Backup with Cron (Optional)
+#### Step 5: Automate the Backup with Cron (Optional)
 1. Open the crontab editor:
    ```bash
    crontab -e
@@ -64,7 +66,7 @@ To add an S3 bucket to back up your EC2 instance, you can use AWS services like 
 
 This will automatically back up your specified directory to S3 daily.
 
-### Additional Considerations
+#### Additional Considerations
 - **Encryption**: If sensitive data is involved, consider enabling server-side or client-side encryption for your S3 objects.
 - **Versioning**: Enable versioning on the S3 bucket to keep track of changes to files over time.
 - **Lifecycle Policies**: Set up lifecycle policies to automatically archive or delete old backups after a set period.
